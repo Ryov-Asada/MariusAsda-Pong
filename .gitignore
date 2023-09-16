@@ -1,0 +1,11 @@
+
+
+Marius_pong/Library/* 
+Marius_pong/Logs/* 
+Marius_pong/Temp/* 
+Marius_pong/.vs/* 
+Marius_pong/obj/* 
+ 
+.vsconfig 
+*.sln 
+*.csproj 
