@@ -9,3 +9,4 @@ Marius_pong/obj/*
 .vsconfig 
 *.sln 
 *.csproj 
+Marius_pong/Build/*
