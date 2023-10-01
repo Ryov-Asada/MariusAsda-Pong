@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 533361878}
   magnitude: 2
+  removeInterval: 15
   manager: {fileID: 1797256412}
 --- !u!212 &48584027
 SpriteRenderer:
@@ -877,7 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988f3fdfa310ba54f9b246985bfea1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 15, y: 14}
+  speed: {x: 5, y: 5}
   resetPosition: {x: 0, y: 0}
 --- !u!212 &533361875
 SpriteRenderer:
@@ -1592,8 +1593,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  upKey: 117
-  downKey: 106
+  upKey: 273
+  downKey: 274
 --- !u!50 &1303638877
 Rigidbody2D:
   serializedVersion: 4
@@ -1858,14 +1859,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c4e5543ce75094cb1cfde97b9fb911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPowerUpAmount: 3
+  maxPowerUpAmount: 2
   powerUpTemplateList:
   - {fileID: 48584024}
   spawnArea: {fileID: 391045988}
   powerUpAreaMin: {x: -8, y: -2}
   powerUpAreaMax: {x: 8, y: 3}
   spawnInterval: 5
-  removeInterval: 10
 --- !u!1 &2055801890
 GameObject:
   m_ObjectHideFlags: 0
