@@ -8,6 +8,10 @@ public class PUSpeedUpController : MonoBehaviour
     public Collider2D ball;
     public float magnitude;
 
+    public int removeInterval;
+
+     private float removetimer;
+
     public PowerUpManager manager;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,6 +21,21 @@ public class PUSpeedUpController : MonoBehaviour
             ball.GetComponent<BallController>().ActivatePUSpeedUp(magnitude);
             manager.RemovePowerUp(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        removetimer=0;
+    }
+    private void Update()
+    {
+        removetimer+=Time.deltaTime;
+        if (removetimer>removeInterval)
+        {
+            manager.RemovePowerUp(gameObject);
+            removetimer-=removeInterval;
+        }
+
     }
     
 }

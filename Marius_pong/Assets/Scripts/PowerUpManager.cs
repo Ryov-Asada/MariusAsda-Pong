@@ -15,10 +15,9 @@ public class PowerUpManager : MonoBehaviour
     public Vector2 powerUpAreaMax;
 
     public int spawnInterval;
-    public int removeInterval;
     
     private float timer;
-    private float removetimer;
+    
 
 
 
@@ -26,31 +25,21 @@ public class PowerUpManager : MonoBehaviour
     {
        powerUpList= new List<GameObject>(); 
        timer=0;
-       removetimer=0;
+       
     }
 
-    // Update is called once per frame
+    
 
     private void Update()
     {
         timer+=Time.deltaTime;
-        removetimer+=Time.deltaTime;
+        
 
         if (timer>spawnInterval)
         {
             GenerateRandomPowerup();
             timer-=spawnInterval;
         }
-        //  if (removetimer>removeInterval)
-        //     {
-        //         foreach(GameObject i in powerUpList)
-        //         {
-        //         RemovePowerUp(i);
-        //         removetimer-=removeInterval;
-        //         Debug.Log("check Remove Power up Time");   
-        //         }
-               
-        //     }
         
         
     }
@@ -93,11 +82,5 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
-    // public void RemovePowerUpTime()
-    // {
-    //    if (powerUpList.Count>0)
-    //     {
-    //     RemovePowerUp(powerUpList[1]);
-    //     }
-    // }
+   
 }
