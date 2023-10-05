@@ -10,11 +10,22 @@ public class PaddleController : MonoBehaviour
     public KeyCode upKey;
     public KeyCode downKey;
 
+    public GameObject paddle;
+
     private Rigidbody2D rig;
+
+    private int triggerCour;
+
+    private Vector3 originalScale;
+
 
     void Start()
     {
         rig=GetComponent<Rigidbody2D>();
+         triggerCour=0;
+         originalScale=transform.localScale;
+         StartCoroutine(Wait5Second());
+     
     }
 
     // Update is called once per frame
@@ -46,5 +57,37 @@ public class PaddleController : MonoBehaviour
           Debug.Log("TEST Kecepatan Paddle : "+movement);
           rig.velocity=movement;
     }
+
+    public void activatePULongPaddle(float longsize)
+    {
+        paddle.transform.localScale += new Vector3(0.0f,longsize,0.0f);
+        triggerCour=1;
+
+    }
+
+    public void deactivatePULongPaddle()
+    {
+        Debug.Log("Return paddle to normal");
+       paddle.transform.localScale=originalScale;
+    }
+
+    private IEnumerator Wait5Second()
+    {
+
+    while (true)
+        {
+        if (triggerCour==1)
+            {
+            yield return new WaitForSeconds(5f);
+            deactivatePULongPaddle();
+            triggerCour=0;
+            }
+        yield return null;
+        }
+           
+       
+    }
+
+
 
 }
