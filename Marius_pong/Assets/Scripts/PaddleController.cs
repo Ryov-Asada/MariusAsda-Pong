@@ -5,7 +5,7 @@ using UnityEngine;
 public class PaddleController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int speed;
+    public float speed;
 
     public KeyCode upKey;
     public KeyCode downKey;
@@ -18,12 +18,15 @@ public class PaddleController : MonoBehaviour
 
     private Vector3 originalScale;
 
+    private float originalspeed;
+
 
     void Start()
     {
         rig=GetComponent<Rigidbody2D>();
          triggerCour=0;
          originalScale=transform.localScale;
+         originalspeed=speed;
          StartCoroutine(Wait5Second());
      
     }
@@ -71,6 +74,20 @@ public class PaddleController : MonoBehaviour
        paddle.transform.localScale=originalScale;
     }
 
+    public void activatePUSpeedPaddle(float addSpeed)
+    {
+       speed*=addSpeed;
+       Debug.Log("check paddle speedup");
+       triggerCour=2;
+
+    }
+
+    public void deactivatePUSpeedPaddle()
+    {
+        Debug.Log("Return paddle Speed to normal");
+        speed=originalspeed;
+    }
+
     private IEnumerator Wait5Second()
     {
 
@@ -80,6 +97,12 @@ public class PaddleController : MonoBehaviour
             {
             yield return new WaitForSeconds(5f);
             deactivatePULongPaddle();
+            triggerCour=0;
+            }
+        if (triggerCour==2)
+            {
+             yield return new WaitForSeconds(5f);
+            deactivatePUSpeedPaddle();
             triggerCour=0;
             }
         yield return null;
