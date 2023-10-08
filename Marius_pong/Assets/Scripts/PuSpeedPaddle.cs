@@ -13,18 +13,33 @@ public class PuSpeedPaddle : MonoBehaviour
      private float removetimer;
 
     public PowerUpManager manager;
+    //public PaddleController paddleNaming;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision==ball)
         {
-
-            Debug.Log("collision check Long");
+               Debug.Log("collision check speed kanan");
            paddleKiri.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
            paddleKanan.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
-           // ball.GetComponent<PaddleController>().activatePULongPaddle(sizeLong);
             manager.RemovePowerUp(gameObject);
+        //     if (paddleNaming.rightPaddle==true)
+        //     {
+        //          Debug.Log("collision check speed kanan");
+        //    //paddleKiri.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
+        //    paddleKanan.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
+        //     manager.RemovePowerUp(gameObject);
+        //     }
+        //     else if  (paddleNaming.rightPaddle==false)
+        //     {
+        //     Debug.Log("collision check speed kiri");
+        //    paddleKiri.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
+        //    //paddleKanan.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
+        //     manager.RemovePowerUp(gameObject);
+        //     }
+           
         }
+        
     }
 
     private void Start()

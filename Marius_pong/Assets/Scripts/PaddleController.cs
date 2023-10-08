@@ -20,11 +20,16 @@ public class PaddleController : MonoBehaviour
 
     private float originalspeed;
 
+    public bool rightPaddle;
+
+    public Collider2D ball;
+
 
     void Start()
     {
         rig=GetComponent<Rigidbody2D>();
          triggerCour=0;
+         rightPaddle=true;
          originalScale=transform.localScale;
          originalspeed=speed;
          StartCoroutine(Wait5Second());
@@ -107,9 +112,21 @@ public class PaddleController : MonoBehaviour
             }
         yield return null;
         }
-           
-       
     }
+
+//    void OnCollisionEnter2D(Collision2D col)
+//     {
+//         if ( col.gameObject.CompareTag("PaddleKanan"))
+//         {
+//             Debug.Log("Kena Paddle Kanan");
+//             rightPaddle = true;
+//         }
+//         else if (col.gameObject.CompareTag("PaddleKiri"))
+//         {
+//             Debug.Log("Kena Paddle Kiri");
+//             rightPaddle=false;
+//         }
+//         }
 
 
 
