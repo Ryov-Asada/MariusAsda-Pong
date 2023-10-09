@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     public Vector2 speed;
     public Vector2 resetPosition;
     private Rigidbody2D rig;
+    public bool rightPaddle;
 
     void Start()
     {
@@ -33,4 +34,18 @@ public class BallController : MonoBehaviour
     {
         rig.velocity*=magnitude;
     }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if ( col.gameObject.tag=="PaddleKanan")
+        {
+            Debug.Log("Kena Paddle Kanan");
+            rightPaddle = true;
+        }
+        else if (col.gameObject.tag=="PaddleKiri")
+        {
+            Debug.Log("Kena Paddle Kiri");
+            rightPaddle=false;
+        }
+     }
 }

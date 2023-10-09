@@ -13,30 +13,30 @@ public class PuSpeedPaddle : MonoBehaviour
      private float removetimer;
 
     public PowerUpManager manager;
-    //public PaddleController paddleNaming;
+    public PaddleController paddleNaming;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision==ball)
         {
-               Debug.Log("collision check speed kanan");
-           paddleKiri.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
-           paddleKanan.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
-            manager.RemovePowerUp(gameObject);
-        //     if (paddleNaming.rightPaddle==true)
-        //     {
-        //          Debug.Log("collision check speed kanan");
-        //    //paddleKiri.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
+        //        Debug.Log("collision check speed kanan");
+        //    paddleKiri.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
         //    paddleKanan.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
         //     manager.RemovePowerUp(gameObject);
-        //     }
-        //     else if  (paddleNaming.rightPaddle==false)
-        //     {
-        //     Debug.Log("collision check speed kiri");
-        //    paddleKiri.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
-        //    //paddleKanan.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
-        //     manager.RemovePowerUp(gameObject);
-        //     }
+            if (ball.GetComponent<BallController>().rightPaddle==true)
+            {
+                 Debug.Log("collision check speed kanan");
+           //paddleKiri.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
+           paddleKanan.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
+            manager.RemovePowerUp(gameObject);
+            }
+            else if  (ball.GetComponent<BallController>().rightPaddle==false)
+            {
+            Debug.Log("collision check speed kiri");
+           paddleKiri.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
+           //paddleKanan.GetComponent<PaddleController>().activatePUSpeedPaddle(addSpeed);
+            manager.RemovePowerUp(gameObject);
+            }
            
         }
         

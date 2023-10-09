@@ -22,11 +22,24 @@ public class PULongPaddle : MonoBehaviour
         if (collision==ball)
         {
 
-            Debug.Log("collision check Long");
-           paddleKiri.GetComponent<PaddleController>().activatePULongPaddle(sizeLong);
-           paddleKanan.GetComponent<PaddleController>().activatePULongPaddle(sizeLong);
-           // ball.GetComponent<PaddleController>().activatePULongPaddle(sizeLong);
-            manager.RemovePowerUp(gameObject);
+        //     Debug.Log("collision check Long");
+        //    paddleKiri.GetComponent<PaddleController>().activatePULongPaddle(sizeLong);
+        //    paddleKanan.GetComponent<PaddleController>().activatePULongPaddle(sizeLong);
+        //    // ball.GetComponent<PaddleController>().activatePULongPaddle(sizeLong);
+        //     manager.RemovePowerUp(gameObject);
+
+            if (ball.GetComponent<BallController>().rightPaddle==true)
+            {
+                 Debug.Log("collision check Long Kanan");
+                paddleKanan.GetComponent<PaddleController>().activatePULongPaddle(sizeLong);
+                manager.RemovePowerUp(gameObject);
+            }
+            else if (ball.GetComponent<BallController>().rightPaddle==false)
+            {
+                Debug.Log("collision check Long Kiri");
+               paddleKiri.GetComponent<PaddleController>().activatePULongPaddle(sizeLong);
+               manager.RemovePowerUp(gameObject); 
+            }
         }
     }
 

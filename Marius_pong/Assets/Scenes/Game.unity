@@ -1035,6 +1035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 5}
   resetPosition: {x: 0, y: 0}
+  rightPaddle: 0
 --- !u!212 &533361875
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1428,6 +1429,7 @@ MonoBehaviour:
   addSpeed: 2
   removeInterval: 15
   manager: {fileID: 1797256412}
+  paddleNaming: {fileID: 1303638876}
 --- !u!58 &717514561
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2157,7 +2159,6 @@ MonoBehaviour:
   upKey: 273
   downKey: 274
   paddle: {fileID: 1303638873}
-  rightPaddle: 0
   ball: {fileID: 0}
 --- !u!50 &1303638877
 Rigidbody2D:
@@ -2425,9 +2426,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPowerUpAmount: 3
   powerUpTemplateList:
-  - {fileID: 717514559}
-  - {fileID: 48584024}
   - {fileID: 507693943}
+  - {fileID: 48584024}
+  - {fileID: 717514559}
   spawnArea: {fileID: 391045988}
   powerUpAreaMin: {x: -8, y: -2}
   powerUpAreaMax: {x: 8, y: 3}
@@ -2535,7 +2536,6 @@ MonoBehaviour:
   upKey: 119
   downKey: 115
   paddle: {fileID: 2055801890}
-  rightPaddle: 0
   ball: {fileID: 0}
 --- !u!50 &2055801894
 Rigidbody2D:
